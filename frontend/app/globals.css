@@ -1,0 +1,117 @@
+/* ============================================================
+   TAILWIND (Next.js 16 uses Tailwind v4)
+   ============================================================ */
+@import "tailwindcss";
+
+/* ============================================================
+   NEXT.JS DEFAULT COLOR VARIABLES
+   ============================================================ */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Light/Dark defaults */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ============================================================
+   FUNWINE MULTI-THEME SYSTEM
+   IMPORTANT CHANGE: theme class applies to entire document root.
+   ============================================================ */
+
+.theme-light {
+  --bg: #ffffff;
+  --fg: #111827;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --border: #e5e7eb;
+  --card: #ffffff;
+}
+
+.theme-dark {
+  --bg: #0f172a;
+  --fg: #f8fafc;
+  --muted: #94a3b8;
+  --accent: #93c5fd;
+  --border: #1f2937;
+  --card: #111827;
+}
+
+.theme-grape {
+  --bg: #fbf8ff;
+  --fg: #2b0763;
+  --muted: #7c3aed;
+  --accent: #7c3aed;
+  --border: #efe6ff;
+  --card: #fff7ff;
+}
+
+.theme-forest {
+  --bg: #f0fdf4;
+  --fg: #064e3b;
+  --muted: #16a34a;
+  --accent: #22c55e;
+  --border: #dcfce7;
+  --card: #ecfdf5;
+}
+
+/* Theme applied by wrapper: <html class="theme-dark"> */
+html.theme-light,
+html.theme-dark,
+html.theme-grape,
+html.theme-forest {
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+.bg-accent { background-color: var(--accent) !important; }
+.text-accent { color: var(--accent) !important; }
+.border-theme { border-color: var(--border) !important; }
+.card { background-color: var(--card); border: 1px solid var(--border); }
+
+.font-small { font-size: 0.90rem; }
+.font-normal { font-size: 1rem; }
+.font-large { font-size: 1.12rem; }
+
+.app-shell { min-height: 100vh; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .sidebar-hidden-sm { display: none; }
+}
+
+/* ACCESSIBILITY */
+:focus {
+  outline: 2px dashed var(--accent);
+  outline-offset: 2px;
+}
+
+/* Apply theme class to <body> */
+body.theme-light,
+body.theme-dark,
+body.theme-grape,
+body.theme-forest {
+  background-color: var(--bg);
+  color: var(--fg);
+}

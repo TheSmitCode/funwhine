@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  web:
+    build: .
+    image: funwhine:latest
+    container_name: funwhine-container
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite+aiosqlite:///./dev.db
+    volumes:
+      - ./:/code
+    depends_on: []
